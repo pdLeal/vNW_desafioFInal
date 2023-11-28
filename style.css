@@ -1,0 +1,115 @@
+html {
+    box-sizing: border-box;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+    font-style: italic;
+}
+
+:root {
+    --bg-header: #ADDE87;
+    --bg-hover: #512200;
+
+}
+
+/* Utility Classes */
+.flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* HEADER */
+header {
+    min-height: 15svh;
+    padding-inline: 32px;
+}
+
+header > img {
+    width: clamp(7rem, 25vw + 0.5rem, 10rem);
+}
+
+nav {
+    min-width: 30%;
+    transition: min-width 600ms cubic-bezier(.6,-0.11,.74,.05); 
+}
+
+nav img {
+    width: clamp(1rem, 3vw + 0.5rem, 1.8rem);
+}
+
+nav:focus-within {
+    min-width: 60%;
+}
+
+.search-bar {
+    --size: clamp(2rem, 8vw + 0.5rem, 3rem);
+
+    width: var(--size);
+    height: var(--size);
+    padding: 3px;
+    border: 2px solid var(--bg-header);
+    border-radius: 50px;
+    overflow: hidden;
+    transition: width 600ms cubic-bezier(.6,-0.11,.74,.05);
+
+    position: relative;
+}
+
+.search-bar:focus-within {
+    width: 100%;
+
+    .search-input {
+        opacity: 1;
+        width: calc(100% - var(--size));
+    }
+
+    .search-submt {
+        background-color: var(--bg-header);
+    }
+}
+
+.search-input {
+    flex-grow: 1;
+    /* font-size: 1.5rem; */
+    padding: 0 0.5em;
+    border: 0;
+    line-height: calc(var(--size) - 3px); /* truque pra centralizar uma única linha de texto. necessário pois no firefox buga o tamanho do input se for só position */
+    opacity: 0;
+    cursor: pointer;
+    transition: opacity 300ms ease-in-out;
+
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.search-input:focus {
+    outline: 0;
+    cursor: initial;
+}
+
+.search-submt {
+    height: calc(var(--size) - 10px);
+    width: calc(var(--size) - 10px);
+    margin-left: auto;
+    cursor: pointer;
+    border: 0;
+    background-color: transparent;
+    border-radius: 50%;
+    transition: background 650ms ease-in-out;
+}
+
+.search-submt:active {
+    box-shadow: 0 0 5px var(--bg-hover);
+}
