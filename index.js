@@ -1,7 +1,11 @@
 const scrollers = document.querySelectorAll(".scroller");
+const outer1 = document.querySelector(".scroller");
+const inner1 = document.querySelector(".inner-scroller");
 
 if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-    addAnimation();
+    while (inner1.offsetWidth < (2 * outer1.offsetWidth)) {
+        addAnimation();
+    }
 }
 
 function addAnimation() {
@@ -18,3 +22,7 @@ function addAnimation() {
         });
     });
 }
+
+window.addEventListener("resize", function () {
+    if (inner1.offsetWidth < (2 * outer1.offsetWidth)) addAnimation();
+});

@@ -123,43 +123,44 @@ nav:focus-within {
 /* HERO SECTION */
 .hero {
     min-height: 30svh;
-    justify-content: center;
+    padding-block: 8px;
+    display: grid;
+    grid-template-rows: repeat(4, 1fr);
     background-color: var(--bg-header);
 
     position: relative;
 }
 
 .hero-img {
-    width: 300px;
+    width: clamp(250px, 70vw, 500px);
     z-index: 1;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
 }
 
 .scroller {
     max-width: 100%;
-    position: absolute;
-    z-index: 0;
-}
-
-.top {
-    top: 0;
+    user-select: none;
 }
 
 .scroller[data-animated=true] {
     overflow: hidden;
     -webkit-mask: linear-gradient(
-        90deg, transparent, white 10%,
-        white 90%, transparent);
+        90deg, transparent, white 5%,
+        white 95%, transparent);
 
     mask: linear-gradient(
-        90deg, transparent, white 10%,
-        white 90%, transparent);
+        90deg, transparent, white 5%,
+        white 95%, transparent);
 }
 
 .inner-scroller {
-    padding-block: 1rem; /*usado para ñ perder coisas como box-shadow, provavelmente desnecessário nesse caso*/
     display: flex;
     flex-wrap: wrap;
-    gap: 24px;
+    gap: 16px;
 }
 
 .scroller[data-animated=true] .inner-scroller {
@@ -177,13 +178,14 @@ nav:focus-within {
 }
 
 .inner-scroller > p {
-    font-size: 50px;
+    font-size: clamp(2rem, 10vw, 4rem);
+    font-weight: 900;
     color: var(--bg-header);
     -webkit-text-stroke: 0.02em rgba(255, 255, 255, 0.3);
 }
 
 @keyframes scroll {
     to {
-        transform: translateX(calc(-50% - 12px)); /*metade do gap pra compensar o deslocamento q ele causa*/
+        transform: translateX(calc(-50% - 8px)); /*metade do gap pra compensar o deslocamento q ele causa*/
     }
 }
