@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap');
+
 html {
     box-sizing: border-box;
 }
@@ -6,6 +8,10 @@ html {
     box-sizing: inherit;
     margin: 0;
     padding: 0;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
 }
 
 img {
@@ -119,8 +125,65 @@ nav:focus-within {
     min-height: 30svh;
     justify-content: center;
     background-color: var(--bg-header);
+
+    position: relative;
 }
 
 .hero-img {
     width: 300px;
+    z-index: 1;
+}
+
+.scroller {
+    max-width: 100%;
+    position: absolute;
+    z-index: 0;
+}
+
+.top {
+    top: 0;
+}
+
+.scroller[data-animated=true] {
+    overflow: hidden;
+    -webkit-mask: linear-gradient(
+        90deg, transparent, white 10%,
+        white 90%, transparent);
+
+    mask: linear-gradient(
+        90deg, transparent, white 10%,
+        white 90%, transparent);
+}
+
+.inner-scroller {
+    padding-block: 1rem; /*usado para ñ perder coisas como box-shadow, provavelmente desnecessário nesse caso*/
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+}
+
+.scroller[data-animated=true] .inner-scroller {
+    width: max-content;
+    flex-wrap: nowrap;
+    animation: scroll 35s var(--_animation-direction, forwards) linear infinite;
+}
+
+.scroller[data-direction="left"] {
+    --_animation-direction: forwards;
+}
+
+.scroller[data-direction="right"] {
+    --_animation-direction: reverse;
+}
+
+.inner-scroller > p {
+    font-size: 50px;
+    color: var(--bg-header);
+    -webkit-text-stroke: 0.02em rgba(255, 255, 255, 0.3);
+}
+
+@keyframes scroll {
+    to {
+        transform: translateX(calc(-50% - 12px)); /*metade do gap pra compensar o deslocamento q ele causa*/
+    }
 }
