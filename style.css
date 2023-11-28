@@ -107,9 +107,20 @@ nav:focus-within {
     border: 0;
     background-color: transparent;
     border-radius: 50%;
-    transition: background 650ms ease-in-out;
+    transition: background 600ms ease-in-out 250ms;
 }
 
 .search-submt:active {
     box-shadow: 0 0 5px var(--bg-hover);
+}
+
+/* HERO SECTION */
+.hero {
+    min-height: 30svh;
+    justify-content: center;
+    background-color: var(--bg-header);
+}
+
+.hero-img {
+    width: 300px;
 }
