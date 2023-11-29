@@ -302,10 +302,83 @@ nav:focus-within {
     background-color: #7a3a0d;
 }
 
+/* FOOTER */
+footer {
+    min-height: 20vh; /*só pra ficar fácil de ver, retirar/arrumar depois*/
+    padding: 16px var(--default-pad);
+    margin-top: 24px;
+    background-color: #F9F9F9;
+}
+
+.contacts {
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.contacts a {
+    font-size: clamp(1rem, 1vw + 0.5rem, 1.5rem);
+    color: black;
+    text-decoration: none;
+    margin-bottom: 16px;
+}
+
+form {
+    margin: 32px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+form > * {
+    margin-bottom: 16px;
+}
+
+label {
+    font-size: clamp(1rem, 1vw + 0.5rem, 1.5rem);
+    font-weight: 700;
+}
+
+.mail-input, .submit-mail {
+    font-size: clamp(1rem, 1.3vw + 0.5rem, 1.8rem);
+    line-height: 2.5em;
+}
+
+.mail-input {
+    padding-left: 8px;
+    border: 2px solid #D9D9D9;
+}
+
+.submit-mail {
+    color: white;
+    background-color: var(--btn-color);
+    border: none;   
+    border-radius: 5px;
+}
+
+.submit-mail:hover {
+    background-color: var(--bg-header);
+}
+
+.submit-mail:active {
+    background-color: var(--btn-color);
+}
+
 /* RESPONSIVO */
 @media only screen and (max-width: 372px) {
     .products {
         grid-template-columns: repeat(auto-fill, 100%);
         justify-content: center;
+    }
+}
+
+@media only screen and (min-width: 750px) {
+    footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    form {
+        flex-direction: row;
+        justify-content: space-evenly;
     }
 }
