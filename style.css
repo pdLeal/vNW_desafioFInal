@@ -102,6 +102,23 @@ nav:focus-within {
     left: 0;
 }
 
+.suggestions {
+    position: absolute;
+    top: 10%;
+    padding: 0 0.5em;
+    font-size: clamp(1rem, 2vw + 0.5rem, 1.8rem);
+    z-index: 2;
+    background: var(--bg-header);
+}
+
+li {
+    list-style-type: none;
+}
+
+.hl {
+    background-color: red;
+}
+
 .search-input:focus {
     outline: 0;
     cursor: initial;
@@ -328,6 +345,11 @@ footer {
     margin-bottom: 16px;
 }
 
+.contacts a:hover {
+    color: var(--bg-header);
+    font-weight: 700;
+}
+
 form {
     margin: 32px 0;
     display: flex;
@@ -361,11 +383,11 @@ label {
 }
 
 .submit-mail:hover {
-    background-color: var(--bg-header);
+    background-color: var(--bg-hover);
 }
 
 .submit-mail:active {
-    background-color: var(--btn-color);
+    background-color: #7a3a0d;
 }
 
 .social-pay {
@@ -379,7 +401,7 @@ label {
     width: clamp(1.2rem, 3vw + 0.5rem, 2rem);
 }
 
-.social img:first-child {
+.social a:first-child {
     margin-right: 16px;
 }
 
