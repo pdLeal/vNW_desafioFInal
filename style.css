@@ -26,6 +26,7 @@ img {
     --bg-hover: #512200;
     --default-pad: 32px;
     --btn-color: #5CA720;
+    --gray: #A5A1A1;
 }
 
 /* Utility Classes */
@@ -194,7 +195,8 @@ nav:focus-within {
 /* MAIN */
 .promo {
     flex-wrap: wrap;
-    padding-block: 36px;
+    padding: 36px 0;
+    border-bottom: 1px solid var(--gray);
 }
 
 .promo h3 {
@@ -207,16 +209,8 @@ nav:focus-within {
     padding-inline: var(--default-pad);
 }
 
-.promo::after {
-    content: "";
-    height: 2px;
-    width: 100%;
-    margin-top: 36px;
-    background-color: #A5A1A1;
-}
-
 .grid {
-    padding-inline: var(--default-pad);
+    padding: 36px var(--default-pad) 0;
     display: grid;
     grid-template-rows: min-content auto auto auto;
     grid-template-columns: repeat(auto-fill, minmax(30%, 150px));
@@ -225,10 +219,11 @@ nav:focus-within {
 }
 
 .card {
-    line-height: 1.65rem;
+    line-height: 1.15rem;
     grid-row: span 4; /*necssário p/ q os elementos se relacionem corretamente com o grid-template-rows da .grid*/
     display: grid;
     grid-template-rows: subgrid;
+    row-gap: 8px;
 }
 
 .wrapper {
@@ -311,9 +306,14 @@ nav:focus-within {
 
 /* FOOTER */
 footer {
-    padding: 16px var(--default-pad);
+    padding-top: 16px;
     margin-top: 24px;
     background-color: #F9F9F9;
+    border-top: 1px solid var(--gray);
+}
+
+.infos {
+    padding-inline: var(--default-pad);
 }
 
 .contacts {
@@ -368,16 +368,45 @@ label {
     background-color: var(--btn-color);
 }
 
+.social-pay {
+    display: flex;
+    justify-content: space-between;
+    padding: 24px var(--default-pad);
+    border-top: 1px solid var(--gray);
+}
+
+.icon {
+    width: clamp(1.2rem, 3vw + 0.5rem, 2rem);
+}
+
+.social img:first-child {
+    margin-right: 16px;
+}
+
+.payment img:nth-child(2) {
+    margin-inline: 16px;
+}
+
 /* RESPONSIVO */
 @media only screen and (max-width: 372px) {
     .grid {
         grid-template-columns: repeat(auto-fill, 100%);
         justify-content: center;
     }
+
+    .card {
+        line-height: 1.65rem;
+        row-gap: 0;
+    }
 }
 
 @media only screen and (min-width: 750px) {
-    footer {
+    .card {
+        line-height: 1.65rem;
+        row-gap: 0;
+    }
+
+    .infos {
         display: flex;
         justify-content: space-between;
         align-items: center;
