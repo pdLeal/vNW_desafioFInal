@@ -28,10 +28,14 @@ window.addEventListener("resize", function () {
     if (inner1.offsetWidth < (2 * outer1.offsetWidth)) addAnimation();
 });
 
-// SEARCH BUTTON
+// SEARCH 
 const h4s = document.querySelectorAll("h4");
 const searchInput = document.querySelector(".search-input");
 const suggestions = document.querySelector(".suggestions");
+
+const nav = document.querySelector('nav');
+const searchBar = document.querySelector('.search-bar');
+
 const products = [];
 
 h4s.forEach(product => {
@@ -47,6 +51,7 @@ function findMatches(wordToMatch, products) {
 
 function displayMatches() {
     const matchArray = findMatches(this.value, products);
+
     const html = matchArray.map(product => {
         const regex = new RegExp(this.value, "gi");
         const productName = product.replace(regex, `<span class="hl">${this.value}</span>`);
@@ -59,6 +64,24 @@ function displayMatches() {
     }).join("");
 
     suggestions.innerHTML = html;
+
+    if (searchInput.value.length === 0) {
+        suggestions.textContent = "";
+    }
+}
+
+function checkSearchWidth() {
+    const navWidth = nav.offsetWidth;
+    const searchBarWidth = searchBar.offsetWidth;
+    const percentage = (searchBarWidth / navWidth) * 100;
+
+    if (percentage < 50) {
+        suggestions.textContent = "";
+        searchInput.value = "";
+    }
 }
 
 searchInput.addEventListener("input", displayMatches);
+window.addEventListener("click", function() {
+    setTimeout(checkSearchWidth, 500);
+});
