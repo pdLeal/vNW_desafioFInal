@@ -21,7 +21,10 @@
             </div>
             <ul class="suggestions"></ul>
             <img src="./imgs/profile_icon.png" alt="">
-            <img src="./imgs/carrinho_icon.png" alt="">
+            <button class="cart-icon">
+                <img src="./imgs/carrinho_icon.png" alt="">
+                <span>0</span>
+            </button>
         </nav>
     </header>
     <section class="hero">
@@ -69,89 +72,99 @@
             <p>9 produtos</p>
         </section>
         <section class="grid">
-            <div class="card">
+            <div class="card" data-id="1">
                 <div class="wrapper">
                     <img class="card-img" src="./imgs/elixir.png" alt="">
                     <p>Bebeu não morre mais e se morrer volta como vampiro!</p>
                 </div>
                 <h4>Elixir da Eternidade</h4>
                 <p class="price">R$ <span>50,00</span></p>
-                <button type="button">Comprar</button>
+                <button class="buy" type="button">Comprar</button>
             </div>
-            <div class="card">
+            <div class="card" data-id="2">
                 <div class="wrapper">
                     <img class="card-img" src="./imgs/vita_sol.png" alt="">
                     <p>Na verdade é só vitamina D, mas você não precisa saber disso U.u</p>
                 </div>
                 <h4>Vitamina do Sol</h4>
                 <p class="price">R$ <span>50,00</span></p>
-                <button type="button">Comprar</button>
+                <button class="buy" type="button">Comprar</button>
             </div>
-            <div class="card">
+            <div class="card" data-id="3">
                 <div class="wrapper">
                     <img class="card-img" src="./imgs/vita_lua.png" alt="">
                     <p>Também é vitamina D, mas deve ser tomada com a maré 🌚</p>
                 </div>
                 <h4>Vitamina da Lua</h4>
                 <p class="price">R$ <span>50,00</span></p>
-                <button type="button">Comprar</button>
+                <button class="buy" type="button">Comprar</button>
             </div>
-            <div class="card">
+            <div class="card" data-id="4">
                 <div class="wrapper">
                     <img class="card-img" src="./imgs/petalas.png" alt="">
                     <p>As vezes vão com pulgões e outros pragas, mas paciência ¯\_(ツ)_/¯</p>
                 </div>
                 <h4>Pétalas de Amor</h4>
                 <p class="price">R$ <span>50,00</span></p>
-                <button type="button">Comprar</button>
+                <button class="buy" type="button">Comprar</button>
             </div>
-            <div class="card">
+            <div class="card" data-id="5">
                 <div class="wrapper">
                     <img class="card-img" src="./imgs/nutu_essencia.png" alt="">
                     <p>Cheiro de grama na chuva e terra molhada, só que não!</p>
                 </div>
                 <h4>Essência da Natureza</h4>
                 <p class="price">R$ <span>50,00</span></p>
-                <button type="button">Comprar</button>
+                <button class="buy" type="button">Comprar</button>
             </div>
-            <div class="card">
+            <div class="card" data-id="6">
                 <div class="wrapper">
                     <img class="card-img" src="./imgs/jasmin.png" alt="">
                     <p>As flores de jasmins acabaram e foi preciso improvisar (✿◠‿◠)</p>
                 </div>
-                <h4>Jasmin com notas de Rosa</h4>
+                <h4>Jasmin com Notas de Rosa</h4>
                 <p class="price">R$ <span>50,00</span></p>
-                <button type="button">Comprar</button>
+                <button class="buy" type="button">Comprar</button>
             </div>
-            <div class="card">
+            <div class="card" data-id="7">
                 <div class="wrapper">
                     <img class="card-img" src="./imgs/melis_essencia.png" alt="">
                     <p>Também não sabemos quem é Melissa, mas como ela pagou bem...</p>
                 </div>
                 <h4>Essência de Melissa</h4>
                 <p class="price">R$ <span>50,00</span></p>
-                <button type="button">Comprar</button>
+                <button class="buy" type="button">Comprar</button>
             </div>
-            <div class="card">
+            <div class="card" data-id="8">
                 <div class="wrapper">
                     <img class="card-img" src="./imgs/pureza.png" alt="">
                     <p>A lampâda têm que pagar a parte! E a pureza depende de você ( ͡° ͜ʖ ͡°)</p>
                 </div>
                 <h4>Pureza Iluminada</h4>
                 <p class="price">R$ <span>50,00</span></p>
-                <button type="button">Comprar</button>
+                <button class="buy" type="button">Comprar</button>
             </div>
-            <div class="card">
+            <div class="card" data-id="9">
                 <div class="wrapper">
                     <img class="card-img" src="./imgs/patch_essencia.png" alt="">
                     <p>Prima rica da menta (▀̿̿Ĺ̯̿▀̿ ̿)
                     </p>
                 </div>
-                <h4>Essência de patchouli</h4>
+                <h4>Essência de Patchouli</h4>
                 <p class="price">R$ <span>50,00</span></p>
-                <button type="button">Comprar</button>
+                <button class="buy" type="button">Comprar</button>
             </div>
         </section>
+        <aside class="cart">
+            <h2>Seu Carrinho</h2>
+            <div class="cart-list">
+                <div class="cart-item"></div>
+            </div>
+            <div class="cart-btns">
+                <button class="close">Fechar</button>
+                <button class="checkout">Pagamento</button>
+            </div>
+        </aside>
     </main>
     <footer>
         <section class="infos">

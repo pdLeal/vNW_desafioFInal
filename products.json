@@ -1,0 +1,54 @@
+[{
+    "id": 1,
+    "name": "Elixir da Eterniade",
+    "price": 50,
+    "image": "./imgs/elixir.png"
+},
+{
+    "id": 2,
+    "name": "Vitamina do Sol",
+    "price": 50,
+    "image": "./imgs/vita_sol.png"
+},
+{
+    "id": 3,
+    "name": "Vitamina da Lua",
+    "price": 50,
+    "image": "./imgs/vita_lua.png"
+},
+{
+    "id": 4,
+    "name": "Pétalas de Amor",
+    "price": 50,
+    "image": "./imgs/petalas.png"
+},
+{
+    "id": 5,
+    "name": "Essência da Natureza",
+    "price": 50,
+    "image": "./imgs/nutu_essencia.png"
+},
+{
+    "id": 6,
+    "name": "Jasmin com Notas de Rosa",
+    "price": 50,
+    "image": "./imgs/jasmin.png"
+},
+{
+    "id": 7,
+    "name": "Essência de Melissa",
+    "price": 50,
+    "image": "./imgs/melis_essencia.png"
+},
+{
+    "id": 8,
+    "name": "Pureza Iluminada",
+    "price": 50,
+    "image": "./imgs/pureza.png"
+},
+{
+    "id": 9,
+    "name": "Essência de Patchouli",
+    "price": 50,
+    "image": "./imgs/patch_essencia.png"
+}]
