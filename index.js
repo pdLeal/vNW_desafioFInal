@@ -93,6 +93,8 @@ const cartList = document.querySelector(".cart-list");
 const closeBtn = document.querySelector(".close");
 const buyBtns = document.querySelectorAll(".buy");
 const cartIconSpan = document.querySelector(".cart-icon span");
+const note = document.querySelector(".note");
+const checkout = document.querySelector(".checkout");
 
 let listProducts = [];
 let cartItens = [];
@@ -211,8 +213,30 @@ function changeQuantity(id, type) {
     addCartToMemory();
 }
 
+function showNote() {
+    const para = document.createElement("p");
+    para.innerText = "Sua compra foi adicionada ao carrinho!";
+
+    note.appendChild(para);
+    setTimeout(() => {
+        para.classList.add("show-note");
+    }, 50);
+
+    setTimeout(() => {
+        para.classList.remove("show-note");
+        deleteNote();
+    }, 2000);
+}
+
+function deleteNote() {
+    setTimeout(() => {
+        note.firstChild.remove();
+    }, 1000);
+}
+
 cartIcon.addEventListener("click", showCartList);
 closeBtn.addEventListener("click", hideCartList);
 buyBtns.forEach(buyBtn => buyBtn.addEventListener("click", addToCart));
+buyBtns.forEach(buyBtn => buyBtn.addEventListener("click", showNote));
 
 cartList.addEventListener("click", checkType);

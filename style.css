@@ -186,6 +186,181 @@ li:hover {
     left: 50%;
 }
 
+
+/* HERO SECTION */
+.hero {
+    min-height: 30svh;
+    padding-block: var(--default-space);
+    grid-template-rows: repeat(4, 1fr);
+    background-color: var(--bg-header);
+
+    position: relative;
+}
+
+.hero-img {
+    width: clamp(250px, 70vw + 0.5rem, 500px);
+    z-index: 1;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.scroller {
+    max-width: 100%;
+    user-select: none;
+}
+
+.scroller[data-animated=true] {
+    overflow: hidden;
+    -webkit-mask: linear-gradient(
+        90deg, transparent, var(--white) 5%,
+        var(--white) 95%, transparent);
+
+        mask: linear-gradient(
+        90deg, transparent, var(--white) 5%,
+        var(--white) 95%, transparent);
+    }
+    
+    .inner-scroller {
+        gap: var(--space-x2);
+    }
+    
+    .scroller[data-animated=true] .inner-scroller {
+        width: max-content;
+        animation: scroll 35s var(--_animation-direction, forwards) linear infinite;
+    }
+    
+    .scroller[data-direction="left"] {
+        --_animation-direction: forwards;
+    }
+
+    .scroller[data-direction="right"] {
+        --_animation-direction: reverse;
+    }
+    
+    .inner-scroller > p {
+        font-size: clamp(2rem, 8vw + 0.5rem, 4rem);
+        font-weight: 900;
+        color: var(--bg-header);
+        -webkit-text-stroke: 0.02em rgba(255, 255, 255, 0.2);
+    }
+    
+    @keyframes scroll {
+        to {
+            transform: translateX(calc(-50% - var(--default-space))); /* metade do gap pra compensar o deslocamento q ele causa */
+        }
+    }
+
+    /* MAIN */
+    .promo {
+        flex-wrap: wrap;
+        padding-block: 36px;
+        border-bottom: 1px solid var(--gray);
+    }
+    
+    .promo h3 {
+        font-size: clamp(1.3rem, 3vw + 0.5rem, 2rem);
+    }
+    
+    .promo p {
+    font-size: clamp(1rem, 2vw + 0.5rem, 1.5rem);
+}
+
+.promo :where(h3, p) {
+    padding-inline: var(--space-x4);
+}
+
+.products {
+    padding: 36px var(--space-x4) 0;
+    grid-template-rows: min-content auto auto auto;
+    grid-template-columns: repeat(auto-fill, minmax(30%, 150px));
+    justify-content: space-between;
+    column-gap:var(--default-space);
+}
+
+.card {
+    line-height: 1.15rem;
+    grid-row: span 4; /* necssário p/ q os elementos se relacionem corretamente com o grid-template-rows da .products */
+    grid-template-rows: subgrid;
+    row-gap: var(--default-space);
+}
+
+.wrapper {
+    position: relative;
+    overflow: hidden;
+}
+
+.card-img {
+    width: 100%;
+}
+
+.wrapper > p {
+    font-size: clamp(0.8rem, 0.8vw + 0.5rem, 1.8rem);
+    color: var(--white);
+    padding: var(--space-x2);
+    justify-content: center;
+    position: absolute;
+    inset: 40% 0 0 0;
+    opacity: 0;
+    transform: translateY(100%);
+    
+    background-color: rgba(92, 167, 32, 0.7);
+}
+
+.card-img, .wrapper > p {
+    transition: 500ms ease-in-out;
+}
+
+.wrapper:hover > p {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.wrapper:hover > .card-img {
+    transform: scale(1.1);
+    filter: blur(1px);
+}
+
+.card h4 {
+    font-size: clamp(1rem, 1.3vw + 0.5rem, 1.3rem);
+    margin-top: var(--default-space);
+}
+
+.price {
+    font-size: clamp(0.6rem, 1vw + 0.5rem, 0.9rem);
+    font-weight: 700;
+}
+
+.price span {
+    font-size: clamp(0.9rem, 1.3vw + 0.5rem, 1.1rem);
+    color: var(--btn-color);
+    border-bottom: 1px solid var(--btn-color);
+}
+
+.buy {
+    font-size: clamp(1.1rem, 1.4vw + 0.5rem, 1.5rem);
+    font-weight: 900;
+    color: var(--white);
+    
+    margin: var(--default-space) 0 var(--space-x4);
+    padding: 0.3em 1em;
+    border: none;
+    border-radius: 10px;
+    
+    justify-self: flex-start;
+    background-color: var(--btn-color);
+    box-shadow: 0 0.4em 0.4em -0.1em #220e0039
+}
+
+.buy:hover {
+    background-color: var(--bg-hover);
+}
+
+.buy:active {
+    background-color: var(--btn-active);
+}
+
 .cart {
     text-align: center;
     height: 100svh;
@@ -268,7 +443,6 @@ li:hover {
 
 }
 
-
 .close:hover {
     background-color: var(--btn-active);
 }
@@ -285,178 +459,50 @@ li:hover {
     background-color: var(--btn-color);
 }
 
-/* HERO SECTION */
-.hero {
-    min-height: 30svh;
+.note {
+    max-width: 80%;
+    position: fixed;
+    left: 0;
+    top: 10%;
+    z-index: 3;
+}
+
+.note > * {
+    font-size: clamp(1rem, 1vw + 0.5rem, 1.5rem);
     padding-block: var(--default-space);
-    grid-template-rows: repeat(4, 1fr);
+    padding-inline: var(--space-x4) var(--default-space);
     background-color: var(--bg-header);
+    border: 1px solid var(--bg-hover);
+    border-left: none;
+    border-radius: 0 10px 10px 0;
+    transform: translateX(-100%);
 
-    position: relative;
+    transition: transform 800ms ease-in-out;;
 }
 
-.hero-img {
-    width: clamp(250px, 70vw + 0.5rem, 500px);
-    z-index: 1;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+.show-note {
+    transform: translateX(0);
 }
 
-.scroller {
-    max-width: 100%;
-    user-select: none;
-}
-
-.scroller[data-animated=true] {
-    overflow: hidden;
-    -webkit-mask: linear-gradient(
-        90deg, transparent, var(--white) 5%,
-        var(--white) 95%, transparent);
-
-    mask: linear-gradient(
-        90deg, transparent, var(--white) 5%,
-        var(--white) 95%, transparent);
-}
-
-.inner-scroller {
-    gap: var(--space-x2);
-}
-
-.scroller[data-animated=true] .inner-scroller {
-    width: max-content;
-    animation: scroll 35s var(--_animation-direction, forwards) linear infinite;
-}
-
-.scroller[data-direction="left"] {
-    --_animation-direction: forwards;
-}
-
-.scroller[data-direction="right"] {
-    --_animation-direction: reverse;
-}
-
-.inner-scroller > p {
-    font-size: clamp(2rem, 8vw + 0.5rem, 4rem);
-    font-weight: 900;
-    color: var(--bg-header);
-    -webkit-text-stroke: 0.02em rgba(255, 255, 255, 0.2);
-}
-
-@keyframes scroll {
-    to {
-        transform: translateX(calc(-50% - var(--default-space))); /* metade do gap pra compensar o deslocamento q ele causa */
-    }
-}
-
-/* MAIN */
-.promo {
-    flex-wrap: wrap;
-    padding-block: 36px;
-    border-bottom: 1px solid var(--gray);
-}
-
-.promo h3 {
-    font-size: clamp(1.3rem, 3vw + 0.5rem, 2rem);
-}
-
-.promo p {
-    font-size: clamp(1rem, 2vw + 0.5rem, 1.5rem);
-}
-
-.promo :where(h3, p) {
-    padding-inline: var(--space-x4);
-}
-
-.products {
-    padding: 36px var(--space-x4) 0;
-    grid-template-rows: min-content auto auto auto;
-    grid-template-columns: repeat(auto-fill, minmax(30%, 150px));
-    justify-content: space-between;
-    column-gap:var(--default-space);
-}
-
-.card {
-    line-height: 1.15rem;
-    grid-row: span 4; /* necssário p/ q os elementos se relacionem corretamente com o grid-template-rows da .products */
-    grid-template-rows: subgrid;
-    row-gap: var(--default-space);
-}
-
-.wrapper {
-    position: relative;
-    overflow: hidden;
-}
-
-.card-img {
-    width: 100%;
-}
-
-.wrapper > p {
-    font-size: clamp(0.8rem, 0.8vw + 0.5rem, 1.8rem);
-    color: var(--white);
-    padding: var(--space-x2);
+.checkout-msg {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
     justify-content: center;
-    position: absolute;
-    inset: 40% 0 0 0;
-    opacity: 0;
-    transform: translateY(100%);
+    align-items: center;
+    background-color: #7a3a0d54;
 
-    background-color: rgba(92, 167, 32, 0.7);
+    position: fixed;
+    inset: 0;
+    z-index: 4;
 }
 
-.card-img, .wrapper > p {
-    transition: 500ms ease-in-out;
-}
-
-.wrapper:hover > p {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.wrapper:hover > .card-img {
-    transform: scale(1.1);
-    filter: blur(1px);
-}
-
-.card h4 {
-    font-size: clamp(1rem, 1.3vw + 0.5rem, 1.3rem);
-    margin-top: var(--default-space);
-}
-
-.price {
-    font-size: clamp(0.6rem, 1vw + 0.5rem, 0.9rem);
-    font-weight: 700;
-}
-
-.price span {
-    font-size: clamp(0.9rem, 1.3vw + 0.5rem, 1.1rem);
-    color: var(--btn-color);
-    border-bottom: 1px solid var(--btn-color);
-}
-
-.buy {
-    font-size: clamp(1.1rem, 1.4vw + 0.5rem, 1.5rem);
-    font-weight: 900;
-    color: var(--white);
-
-    margin: var(--default-space) 0 var(--space-x4);
-    padding: 0.3em 1em;
-    border: none;
-    border-radius: 10px;
-
-    justify-self: flex-start;
-    background-color: var(--btn-color);
-    box-shadow: 0 0.4em 0.4em -0.1em #220e0039
-}
-
-.buy:hover {
-    background-color: var(--bg-hover);
-}
-
-.buy:active {
-    background-color: var(--btn-active);
+.checkout-msg p {
+    line-height: 1.8rem;
+    width: 250px;
+    height: 250px;
+    padding: var(--space-x2);
+    background-color: var(--bg-header);
 }
 
 /* FOOTER */
