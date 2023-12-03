@@ -94,7 +94,7 @@ const closeBtn = document.querySelector(".close");
 const buyBtns = document.querySelectorAll(".buy");
 const cartIconSpan = document.querySelector(".cart-icon span");
 const note = document.querySelector(".note");
-const checkout = document.querySelector(".checkout");
+const checkoutBtn = document.querySelector(".checkout");
 
 let listProducts = [];
 let cartItens = [];
@@ -234,9 +234,38 @@ function deleteNote() {
     }, 1000);
 }
 
+function displayCheckOutMsg() {
+    const main = document.querySelector("main");
+
+    const checkoutBox = document.createElement("div");
+    checkoutBox.classList.add("checkout-box");
+
+    const div = document.createElement("div");
+
+    const msg = document.createElement("p");
+    msg.innerText = "Normalmente você seria redirecionado a página de pagamento, mas como este é apenas um site para fins de estudo, contente-se com esta mensagem U.u";
+    div.appendChild(msg);
+    
+    const closeCheckout = document.createElement("button");
+    closeCheckout.innerText = "Fechar";
+    closeCheckout.addEventListener("click", closeCheckoutMsg);
+    div.appendChild(closeCheckout);
+
+    checkoutBox.appendChild(div);
+    main.appendChild(checkoutBox);
+}
+
+function closeCheckoutMsg() {
+    const main = document.querySelector("main");
+
+    main.lastChild.remove();
+}
+
 cartIcon.addEventListener("click", showCartList);
 closeBtn.addEventListener("click", hideCartList);
+
 buyBtns.forEach(buyBtn => buyBtn.addEventListener("click", addToCart));
 buyBtns.forEach(buyBtn => buyBtn.addEventListener("click", showNote));
 
 cartList.addEventListener("click", checkType);
+checkoutBtn.addEventListener("click", displayCheckOutMsg);
