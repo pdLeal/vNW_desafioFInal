@@ -502,7 +502,10 @@ li:hover {
     width: 250px;
     height: 250px;
     padding: var(--space-x2);
-    background-color: var(--bg-header);
+    /* background-color: var(--bg-header); */
+    background-color: transparent;
+    border: 1px solid var(--bg-hover);
+    backdrop-filter: blur(32px);
 }
 
 .checkout-box button {
