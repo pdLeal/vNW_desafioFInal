@@ -363,7 +363,7 @@ li:hover {
 
 .cart {
     text-align: center;
-    height: 100svh;
+    height: 100vh;
     width: 60vw;
     max-width: 350px;
     padding-top: var(--space-x3);
@@ -505,6 +505,7 @@ li:hover {
     /* background-color: var(--bg-header); */
     background-color: transparent;
     border: 1px solid var(--bg-hover);
+    -webkit-backdrop-filter: blur(32px);
     backdrop-filter: blur(32px);
 }
 
