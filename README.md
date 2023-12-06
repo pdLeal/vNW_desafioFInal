@@ -1,7 +1,7 @@
 <h1 align="center">Desafio Final do Módulo 1</h1>
 
 
-> A proposta deste desafio era reproduzir o layout estático fornecido pelo Vai na Web, que simula uma página de compras a fim de estimular a prática de tudo aquilo que aprendemos durante o primeiro módulo do curso de front-end, assim como a buscar novos conhecimentos por comta própria...
+> A proposta deste desafio era reproduzir o layout estático fornecido pelo Vai na Web, que simula uma página de compras a fim de estimular a prática de tudo aquilo que aprendemos durante o primeiro módulo do curso de front-end, assim como a buscar novos conhecimentos por conta própria...
 
 
 <img src="./imgs/prints/tela_inicial.png" alt="print da tela do topo da página">
